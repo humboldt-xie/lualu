@@ -36,11 +36,20 @@
 
 
 /* ORDER RESERVED */
-static const char *const luaX_tokens [] = {
+/*static const char *const luaX_tokens [] = {
     "and", "break", "do", "else", "elseif",
     "end", "false", "for", "function", "goto", "if",
     "in", "local", "nil", "not", "or", "repeat",
     "return", "then", "true", "until", "while",
+    "//", "..", "...", "==", ">=", "<=", "~=",
+    "<<", ">>", "::", "<eof>",
+    "<number>", "<integer>", "<name>", "<string>"
+};*/
+static const char *const luaX_tokens [] = {
+    "和", "断", "做", "否则", "否则若",
+    "终", "非", "循", "函", "去", "若",
+    "在", "局", "空", "否", "或", "重复",
+    "返", "则", "真", "直到", "当",
     "//", "..", "...", "==", ">=", "<=", "~=",
     "<<", ">>", "::", "<eof>",
     "<number>", "<integer>", "<name>", "<string>"
@@ -558,11 +567,11 @@ static int llex (LexState *ls, SemInfo *seminfo) {
         return TK_EOS;
       }
       default: {
-        if (lislalpha(ls->current)) {  /* identifier or reserved word? */
+        if (lislalpha(ls->current)|| ls->current == '_'|| ls->current>127) {  /* identifier or reserved word? */
           TString *ts;
           do {
             save_and_next(ls);
-          } while (lislalnum(ls->current));
+          } while (lislalnum(ls->current)|| ls->current == '_'|| ls->current>127);
           ts = luaX_newstring(ls, luaZ_buffer(ls->buff),
                                   luaZ_bufflen(ls->buff));
           seminfo->ts = ts;
