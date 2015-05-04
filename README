@@ -1,3 +1,32 @@
+这个项目基于lua5.3 ，修改成支持中文的语言
+关键词都使用中文代替。
+做这项修改，并不指望有什么实际用处，仅仅只为了好玩。
+以下是词汇表：
+
+"and"      和
+"break"    断
+"do"       做
+"else"     否则
+"elseif"   否则若
+"end"      终
+"false"    非
+"for"      循
+"function" 函
+"goto"     去
+"if"       若
+"in"       在
+ "local"   局
+"nil"      空
+"not"      否
+"or"       或
+"repeat"   重复
+"return"   返
+"then"     则
+"true"     真
+"until"    直到
+"while"    当
+
+祝玩得开心:)
 
 This is Lua 5.3.0, released on 06 Jan 2015.
 
